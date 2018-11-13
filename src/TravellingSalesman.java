@@ -36,8 +36,9 @@ public class TravellingSalesman {
 	public void generateMap(int cities, long maxDist, long[][] map) {
 		for(int city1 = 0; city1 < cities; city1++) {
 			for(int city2 = 0; city2 < cities; city2++) {
-				
+				//Cool oneliner
 				//map[city1][city2] = (city1 == city2) ? 0 : (city1 > city2) ? map[city2][city1] : (long) (Math.random() * (maxDist -1)) + 1;
+				//Less cool version of cool oneliner
 				//If city1 and city2 are the same the distance is 0
 				if(city1 == city2) {
 					map[city1][city2] = 0;
