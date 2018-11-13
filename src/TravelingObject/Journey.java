@@ -1,6 +1,7 @@
 package TravelingObject;
 
 public class Journey implements Cloneable{
+	//Initialize variables
 	private int[] journey;
 	private long[][] map;
 	public Journey(Towns towns) {
@@ -31,6 +32,7 @@ public class Journey implements Cloneable{
 		journeyLength += map[journey[0]][journey[journey.length - 1]];
 		return journeyLength;
 	}
+	//Swap two indices 
 	private void swapIndex(int indexA, int indexB, int[] list) {
 		int temp = list[indexB];
 		list[indexB] = list[indexA];
@@ -47,12 +49,15 @@ public class Journey implements Cloneable{
 		//generate a new test array and swap the two indices generated above
 		swapIndex(indexA, indexB, journey);
 	}
+	//journey getter
 	public int[] getJourney() {
 		return this.journey;
 	}
+	//Journey setter
 	public void setJourney(int[] journey) {
 		this.journey = journey;
 	}
+	//clone function that depp copies the array 
 	@Override
 	protected Journey clone() throws CloneNotSupportedException {
 		Journey clonedJourney = (Journey) super.clone();

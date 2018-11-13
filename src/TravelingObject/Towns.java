@@ -1,20 +1,25 @@
 package TravelingObject;
 
 public class Towns {
+	//Initialize variables
 	private int numberOfTowns;
 	private long maxDistance = 10;
 	private long[][]map;
+	//Constructor 
 	public Towns(int numberOfTowns) {
+		//generate local variables
 		this.numberOfTowns = numberOfTowns;
 		map = new long[numberOfTowns][numberOfTowns];
 		generateMap(numberOfTowns, maxDistance, map);
 	}
+	//Constructor with maxDist
 	public Towns(int numberOfTowns, long maxDist) {
 		this.numberOfTowns = numberOfTowns;
 		this.maxDistance = maxDist;
 		map = new long[numberOfTowns][numberOfTowns];
 		generateMap(numberOfTowns, maxDistance, map);
 	}
+	//generate map from input
 	private void generateMap(int cities, long maxDist, long[][] map) {
 		for(int city1 = 0; city1 < cities; city1++) {
 			for(int city2 = 0; city2 < cities; city2++) {
@@ -26,15 +31,19 @@ public class Towns {
 			}
 		}
 	}
+	//towns getter
 	public int getNumberOfTowns() {
 		return this.numberOfTowns;
 	}
+	//map getter
 	public long[][] getMap(){
 		return this.map;
 	}
+	//maxDist getter
 	public long getMaxDistance() {
 		return this.maxDistance;
 	}
+	//print the distances
 	public void printMap() {
 		for(int i = 0; i < map.length; i++) {
 			for(int j = 0; j < map[i].length; j++) {

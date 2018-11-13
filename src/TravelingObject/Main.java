@@ -4,14 +4,17 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
+		//Initialize variables
 		Main m = new Main();
 		Towns towns;
 		Scanner sc = new Scanner(System.in);
+		//get user input number of towns
 		int numberOfTowns = m.getTowns(sc);
 		String answer = "";
+		//get user Input repeat until valid answer is entered
 		do {
 			try {
-				System.out.println("Wollen sie die maximale Distanz ändern?");
+				System.out.println("Wollen sie die maximale Distanz aendern?");
 				answer = sc.next();
 			}catch(java.util.InputMismatchException e) {
 				while(sc.hasNext()) sc.nextLine();
@@ -27,10 +30,12 @@ public class Main {
 		Journey j = new Journey(towns);
 		//Print Journey length
 		System.out.println(j.getLength());
-		
+		//Check swaps
 		m.checkJourneySwaps(j, 200);
+		//Close scanner
 		sc.close();		
 	}
+	//swap indices and check new length
 	public void checkJourneySwaps(Journey j, long swaps) {
 		long oldLength;
 		long newLength;
@@ -38,12 +43,15 @@ public class Main {
 		for(long i = 0; i < swaps; i++) {
 			
 			try {
+				//generate a test journey 
 				testJourney = j.clone();
 			}catch(CloneNotSupportedException e) {
 				System.out.println("whoops");
 				return;
 			}
+			//swap indices in test journey
 			testJourney.randomSwap();
+			//compare new and old length use the new journey if its shorter
 			if((newLength = testJourney.getLength())< (oldLength = j.getLength())) {
 				System.out.println(oldLength + " " + newLength);
 				j = testJourney;
