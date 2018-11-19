@@ -42,13 +42,8 @@ public class Main {
 		Journey testJourney;
 		for(long i = 0; i < swaps; i++) {
 			
-			try {
-				//generate a test journey 
-				testJourney = j.clone();
-			}catch(CloneNotSupportedException e) {
-				System.out.println("whoops");
-				return;
-			}
+			//generate a test journey 
+			testJourney = new Journey(j);
 			//swap indices in test journey
 			testJourney.randomSwap();
 			//compare new and old length use the new journey if its shorter
@@ -84,7 +79,7 @@ public class Main {
 		//Get user input , repeat until valid input is entered
 		do {
 			try {
-				System.out.println("Bitte geben sie die Anzahl der Städte ein");
+				System.out.println("Bitte geben sie die Anzahl der Staedte ein");
 				cities = sc.nextInt();
 			}catch(java.util.InputMismatchException e) {
 				//Clear Scanner

@@ -28,7 +28,6 @@ public class TravellingSalesman {
 		int[] journey = randomJourney(cities);
 		//check a certain amount of different orders for journey
 		journey = checkJourneyPosibilities(journey, map, 1000);
-		System.out.println(getJourneyLength(journey, map));
 		//close scanner
 		sc.close();
 	}
@@ -59,7 +58,7 @@ public class TravellingSalesman {
 		//Get user input , repeat until valid input is entered
 		do {
 			try {
-				System.out.println("Bitte geben sie die Anzahl der Städte ein");
+				System.out.println("Bitte geben sie die Anzahl der Staedte ein");
 				cities = sc.nextInt();
 			}catch(java.util.InputMismatchException e) {
 				//Clear Scanner

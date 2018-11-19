@@ -1,10 +1,19 @@
 package TravelingObject;
 
-public class Journey implements Cloneable{
+import java.util.Arrays;
+
+public class Journey{
 	//Initialize variables
 	private int[] journey;
 	private long[][] map;
+	private Towns t;
+	public Journey(Journey originalJourney) {
+		this.map = originalJourney.t.getMap();
+		this.t = originalJourney.t;
+		this.setJourney(originalJourney.journey);
+	}
 	public Journey(Towns towns) {
+		this.t = towns;
 		this.map = towns.getMap();
 		randomJourney(towns.getNumberOfTowns());
 	}
@@ -55,7 +64,8 @@ public class Journey implements Cloneable{
 	}
 	//Journey setter
 	public void setJourney(int[] journey) {
-		this.journey = journey;
+		this.journey = Arrays.copyOf(journey, journey.length);
+		//System.arraycopy(journey, 0, this.journey, 0, journey.length);
 	}
 	//clone function that depp copies the array 
 	@Override
